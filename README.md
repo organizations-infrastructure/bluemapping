@@ -16,7 +16,7 @@ This repository describe through IAC the PROJECT_NAME administrative infrastruct
 
 ### Generating the infrastructure.
 Run the ['Apply the changes to GITHUB_ORGANIZATION_NAME' workflow](https://github.com/organizations-infrastructure/GITHUB_ORGANIZATION_NAME/actions) (time <~ 3 min)
-- The infrastructure services; application and presentation repositories have been created and configured in the [GITHUB_ORGANIZATION_NAME github organization](https://github.com/ORGANIZATION).
+- The infrastructure services; application and presentation repositories have been created and configured in the [GITHUB_ORGANIZATION_NAME github organization](https://github.com/GITHUB_ORGANIZATION_NAME).
 - the [organization admin workspace](https://app.terraform.io/app/organizations-infrastructure/workspaces/TERRAFORM_CLOUD_ORGANIZATION_NAME) is created in terraform cloud admin infrastructure.
 - the [organization](https://app.terraform.io/app/TERRAFORM_CLOUD_ORGANIZATION_NAME/workspaces) is created in terraform cloud
 - an organizational unit AWS_ORGANIZATIONAL_UNIT_NAME and a deployer IAM user have been created in AWS.
