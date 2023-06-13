@@ -11,6 +11,7 @@ locals {
     aws_root_id                  = "r-gw1z"
     aws_management_account       = "ma-ou-bluemapping"
     aws_management_email         = "romain.cambonie+ma-ou-bluemapping@gmail.com"
+    about                        = "bluemapping"
     terraform_organization_variables = {
       "project" = {
         hcl         = false
@@ -49,10 +50,10 @@ locals {
         description = "The emails addresses to forward the emails sent to the SES verified domain"
       }
       "github_pat" = {
-          hcl         = false
-          sensitive   = false
-          value       = var.github_pat
-          description = "A github PAT that allow administration operation on repositories"
+        hcl         = false
+        sensitive   = false
+        value       = var.github_pat
+        description = "A github PAT that allow administration operation on repositories"
       }
       "notification_webhook_failures" = {
         hcl         = false
