@@ -1,7 +1,7 @@
-# PROJECT_NAME Organization Infrastructure
+# bluemapping Organization Infrastructure
 
 ## About
-This repository describe through IAC the PROJECT_NAME administrative infrastructure that span over Github, Terraform Cloud and an AWS Organizational Unit.
+This repository describe through IAC the bluemapping administrative infrastructure that span over Github, Terraform Cloud and an AWS Organizational Unit.
 
 ## TOC
 
@@ -15,11 +15,11 @@ This repository describe through IAC the PROJECT_NAME administrative infrastruct
 ## Usage
 
 ### Generating the infrastructure.
-Run the ['Apply the changes to GITHUB_ORGANIZATION_NAME' workflow](https://github.com/organizations-infrastructure/GITHUB_ORGANIZATION_NAME/actions) (time <~ 3 min)
-- The infrastructure services; application and presentation repositories have been created and configured in the [GITHUB_ORGANIZATION_NAME github organization](https://github.com/GITHUB_ORGANIZATION_NAME).
-- the [organization admin workspace](https://app.terraform.io/app/organizations-infrastructure/workspaces/TERRAFORM_CLOUD_ORGANIZATION_NAME) is created in terraform cloud admin infrastructure.
-- the [organization](https://app.terraform.io/app/TERRAFORM_CLOUD_ORGANIZATION_NAME/workspaces) is created in terraform cloud
-- an organizational unit AWS_ORGANIZATIONAL_UNIT_NAME and a deployer IAM user have been created in AWS.
+Run the ['Apply the changes to bluemapping' workflow](https://github.com/organizations-infrastructure/bluemapping/actions) (time <~ 3 min)
+- The infrastructure services; application and presentation repositories have been created and configured in the [bluemapping github organization](https://github.com/bluemapping).
+- the [organization admin workspace](https://app.terraform.io/app/organizations-infrastructure/workspaces/bluemapping) is created in terraform cloud admin infrastructure.
+- the [organization](https://app.terraform.io/app/bluemapping/workspaces) is created in terraform cloud
+- an organizational unit bluemapping and a deployer IAM user have been created in AWS.
 - you have received an email inviting you to manage the AWS organizational unit on the management account email address.
 
 
@@ -68,24 +68,24 @@ Add the following reply :
     Thanks in advance,
     
 ### Deploy services in sequence (~ 60/90 min )
-- Run the ['Apply changes to vpc-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/vpc-infrastructure/actions) workflow (time <~ 3 min)
-- Once the domain has been registered / transfered run the ['Apply changes to domain-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/domain-infrastructure/actions) workflow (time <~ 4-30 min)
-- Run the ['Apply changes to email-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/email-infrastructure/actions) workflow in the new organization matching '-infrastructure' repository (time <~ 3 min)
-  - Wait to receive the "DKIM setup SUCCESS for avrtoken.com in US East (N. Virginia) region" email and run again the ['Apply changes to email-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/email-infrastructure/actions) workflow (time <~ 3 min )
-  - Run again the ['Apply changes to email-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/email-infrastructure/actions) workflow a third time to have the configuration_set_name in the terraform variables.  (time <~ 3 min )
-- Run the ['Apply changes to identity-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/identity-infrastructure/actions) workflow (time <~ 2 min)
-- Run the ['Apply changes to persistence-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/persistence-infrastructure/actions) workflow (time <~ 11 min)
-- Run the ['Apply changes to registry-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/registry-infrastructure/actions) workflow, it ends with an error (time <~ 2 min)
-  - Run the ['Release'](https://github.com/GITHUB_ORGANIZATION_NAME/api/actions) in the 'api' repository, (time <~ 2 min)
-  - It should trigger the ['Apply changes to registry-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/registry-infrastructure/actions) again that will complete with success this time. (time <~ 2 min)
-- Run the ['Apply changes to api-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/api-infrastructure/actions) workflow (time <~ 4 min)
+- Run the ['Apply changes to vpc-infrastructure'](https://github.com/bluemapping/vpc-infrastructure/actions) workflow (time <~ 3 min)
+- Once the domain has been registered / transfered run the ['Apply changes to domain-infrastructure'](https://github.com/bluemapping/domain-infrastructure/actions) workflow (time <~ 4-30 min)
+- Run the ['Apply changes to email-infrastructure'](https://github.com/bluemapping/email-infrastructure/actions) workflow in the new organization matching '-infrastructure' repository (time <~ 3 min)
+  - Wait to receive the "DKIM setup SUCCESS for avrtoken.com in US East (N. Virginia) region" email and run again the ['Apply changes to email-infrastructure'](https://github.com/bluemapping/email-infrastructure/actions) workflow (time <~ 3 min )
+  - Run again the ['Apply changes to email-infrastructure'](https://github.com/bluemapping/email-infrastructure/actions) workflow a third time to have the configuration_set_name in the terraform variables.  (time <~ 3 min )
+- Run the ['Apply changes to identity-infrastructure'](https://github.com/bluemapping/identity-infrastructure/actions) workflow (time <~ 2 min)
+- Run the ['Apply changes to persistence-infrastructure'](https://github.com/bluemapping/persistence-infrastructure/actions) workflow (time <~ 11 min)
+- Run the ['Apply changes to registry-infrastructure'](https://github.com/bluemapping/registry-infrastructure/actions) workflow, it ends with an error (time <~ 2 min)
+  - Run the ['Release'](https://github.com/bluemapping/api/actions) in the 'api' repository, (time <~ 2 min)
+  - It should trigger the ['Apply changes to registry-infrastructure'](https://github.com/bluemapping/registry-infrastructure/actions) again that will complete with success this time. (time <~ 2 min)
+- Run the ['Apply changes to api-infrastructure'](https://github.com/bluemapping/api-infrastructure/actions) workflow (time <~ 4 min)
 
 - Once the Cloudfront increase limit AND account verification requests are granted.
-  - Run the ['Apply changes to client-infrastructure'](https://github.com/GITHUB_ORGANIZATION_NAME/client-infrastructure/actions) workflow (time <~ 10/15 min)
+  - Run the ['Apply changes to client-infrastructure'](https://github.com/bluemapping/client-infrastructure/actions) workflow (time <~ 10/15 min)
 
-- (TODO Remove the need to run the admin infrastructure) Run the ['Apply changes to the organization'](https://github.com/organizations-infrastructure/GITHUB_ORGANIZATION_NAME/actions) in admin infrastructure to update github-action client repository variables.
+- (TODO Remove the need to run the admin infrastructure) Run the ['Apply changes to the organization'](https://github.com/organizations-infrastructure/bluemapping/actions) in admin infrastructure to update github-action client repository variables.
 
-- You can update and push the [client repository](https://github.com/GITHUB_ORGANIZATION_NAME/client) and ['api repository'](https://github.com/GITHUB_ORGANIZATION_NAME/api) to trigger a release (time <~ 4 min)
+- You can update and push the [client repository](https://github.com/bluemapping/client) and ['api repository'](https://github.com/bluemapping/api) to trigger a release (time <~ 4 min)
 
 ### More manual operations with the support (20 min)
 
@@ -230,7 +230,7 @@ Pour que les modifications de la description de l'infrastructure soient appliqu�
 #### Déploiement
 
 - [Terraform Cloud](https://app.terraform.io/) est la plateforme proposée par HashiCorp pour administrer les modifications d'infrastructure
-    - Organization : [TERRAFORM_CLOUD_ORGANIZATION_NAME](https://app.terraform.io/app/TERRAFORM_CLOUD_ORGANIZATION_NAME/workspaces)
+    - Organization : [bluemapping](https://app.terraform.io/app/bluemapping/workspaces)
 
 ## Licence
 
