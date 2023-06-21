@@ -34,19 +34,19 @@ locals {
       "domain_name" = {
         hcl         = false
         sensitive   = false
-        value       = "DOMAIN"
+        value       = "blue-mapping.com"
         description = "The registered domain name (does not need to be registered yet but check availability)"
       }
       "sender_id" = {
         hcl         = false
         sensitive   = false
-        value       = "SENDER_ID"
+        value       = "bluemap"
         description = "Sender id for transactional sms (auth). Maximum 11 alphanumeric or hyphen (-) characters, including at least one letter and no spaces. It has to start and end with an alphanumeric character."
       }
       "domain_email_forward_addresses" = {
         hcl         = false
         sensitive   = false
-        value       = "['EMAIL_1','EMAIL_2']"
+        value       = "['romain.cambonie@gmail.com']"
         description = "The emails addresses to forward the emails sent to the SES verified domain"
       }
       "github_pat" = {
