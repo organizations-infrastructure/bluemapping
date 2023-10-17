@@ -321,7 +321,7 @@ locals {
         }
       ]
     })
-    compute-infrastructure = jsonencode({
+    batch-infrastructure = jsonencode({
       "Version" : "2012-10-17",
       "Statement" : [
         {
