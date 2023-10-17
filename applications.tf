@@ -12,7 +12,7 @@ locals {
       github_repository                    = "compute"
       github_repository_visibility         = "private"
       github_repository_topics             = ["python", "aws", "ecr", "docker"]
-      template_repositories                = [],
+      template_repositories                = ["", ""],
       templated_files_variables            = merge(local.common-applications-variables, { __REPOSITORY = "compute" })
       template_fork                        = false
       service                              = "compute"
