@@ -8,37 +8,15 @@ locals {
 
 locals {
   applications = {
-    api = {
-      github_repository                    = "api"
-      github_repository_visibility         = "private"
-      github_repository_topics             = ["api", "node", "fastify", "typescript", "postgresql", "aws", "ecr", "docker"]
-      template_repositories                = ["codingones-github-templates/fastify-api", "codingones-github-templates/aws-application-api"]
-      templated_files_variables            = merge(local.common-applications-variables, { __REPOSITORY = "api" })
-      template_fork                        = false
-      service                              = "ecr"
-      policy                               = local.policies.ecr
-      allow_force_pushes_to_default_branch = false
-    }
-    client = {
-      github_repository                    = "client"
-      github_repository_visibility         = "private"
-      github_repository_topics             = ["client", "node", "typescript", "aws", "cloudfront"]
-      template_repositories                = ["codingones-github-templates/angular-client", "codingones-github-templates/aws-application-client"]
-      templated_files_variables            = merge(local.common-applications-variables, { __REPOSITORY = "client" })
-      template_fork                        = false
-      service                              = "s3-client"
-      policy                               = local.policies.client
-      allow_force_pushes_to_default_branch = false
-    },
     compute = {
       github_repository                    = "compute"
       github_repository_visibility         = "private"
-      github_repository_topics             = ["api", "node", "fastify", "typescript", "postgresql", "aws", "ecr", "docker"]
-      template_repositories                = ["codingones-github-templates/angular-client", "codingones-github-templates/aws-application-client"]
+      github_repository_topics             = ["python", "aws", "ecr", "docker"]
+      template_repositories                = [],
       templated_files_variables            = merge(local.common-applications-variables, { __REPOSITORY = "compute" })
       template_fork                        = false
-      service                              = "s3-client"
-      policy                               = local.policies.client
+      service                              = "compute"
+      policy                               = local.policies.ecr
       allow_force_pushes_to_default_branch = false
     }
   }

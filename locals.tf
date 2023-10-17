@@ -1,5 +1,5 @@
 locals {
-  first_run = true #set to false after initial repositories run
+  first_run = false #set to false after initial repositories run
   project = {
     name                         = "bluemapping"
     github_organization          = "bluemapping"

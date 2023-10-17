@@ -896,5 +896,48 @@ locals {
         }
       ]
     })
+    compute = jsonencode({
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "s3:PutObject",
+            "s3:GetObject",
+            "s3:ListBucket",
+            "s3:DeleteObject"
+          ],
+          "Resource" : [
+            "arn:aws:s3:::${local.project.name}-client",
+            "arn:aws:s3:::${local.project.name}-client/*"
+          ]
+        },
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "cloudfront:CreateInvalidation"
+          ],
+          "Resource" : "*"
+        }
+      ]
+    })
+    compute-infrastructure = jsonencode({
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "ecr:GetAuthorizationToken",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:BatchGetImage",
+            "ecr:DescribeRepositories",
+            "ecr:ListImages",
+            "ecr:DescribeImages",
+          ],
+          "Resource" : "*"
+        }
+      ]
+    })
   }
 }
