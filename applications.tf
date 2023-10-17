@@ -15,8 +15,8 @@ locals {
       template_repositories                = ["", ""],
       templated_files_variables            = merge(local.common-applications-variables, { __REPOSITORY = "compute" })
       template_fork                        = false
-      service                              = "compute"
-      policy                               = local.policies.ecr
+      service                              = "compute-model"
+      policy                               = local.policies.compute
       allow_force_pushes_to_default_branch = false
     }
   }

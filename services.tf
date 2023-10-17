@@ -43,13 +43,13 @@ locals {
       allow_force_pushes_to_default_branch = true
       template_fork                        = true
     }
-    compute = {
-      template                             = "codingones-github-templates/aws-service-client"
+    /*    compute = {
+      template                             = "codingones-github-templates/aws-service-compute"
       templated_files_variables            = merge(local.common-services-variables, { __REPOSITORY = "compute-infrastructure" })
       deployer_policy                      = local.policies.compute-infrastructure
       allow_force_pushes_to_default_branch = true
       template_fork                        = true
-    }
+    }*/
   }
 }
 
