@@ -147,7 +147,7 @@ locals {
             "iam:ListInstanceProfilesForRole",
             "iam:PassRole"
           ],
-          "Resource" : "arn:aws:iam::*:role/lambda_execution_role"
+          "Resource" : ["arn:aws:iam::*:role/ecs_compute_instance_role", "arn:aws:iam::*:role/aws_batch_service_role"]
         },
         {
           "Effect" : "Allow",
@@ -327,13 +327,69 @@ locals {
         {
           "Effect" : "Allow",
           "Action" : [
+            "iam:CreateRole",
+            "iam:DeleteRole",
+            "iam:AttachRolePolicy",
+            "iam:DetachRolePolicy",
+            "iam:PutRolePolicy",
+            "iam:GetRole",
+            "iam:GetRolePolicy",
+            "iam:ListRolePolicies",
+            "iam:ListAttachedRolePolicies",
+            "iam:DeleteRolePolicy",
+            "iam:ListInstanceProfilesForRole",
+            "iam:PassRole"
+          ],
+          "Resource" : "arn:aws:iam::*:role/lambda_execution_role",
+          "Condition" : {
+            "StringEquals" : {
+              "iam:PassedToService" : "batch.amazonaws.com"
+            }
+          }
+        },
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "batch:CreateComputeEnvironment",
+            "batch:UpdateComputeEnvironment",
+            "batch:DeleteComputeEnvironment",
+            "batch:DescribeComputeEnvironments",
+            "iam:PassRole"
+          ],
+          "Resource" : "*"
+        },
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "ec2:CreateTags",
+            "ec2:DescribeSubnets",
+            "ec2:DescribeSecurityGroups",
+            "ec2:DescribeKeyPairs",
+            "ec2:DescribeImages",
+            "ec2:DescribeInstanceTypes",
+            "ec2:DescribeVpcs",
+            "ec2:CreateLaunchTemplate",
+            "ec2:CreateLaunchTemplateVersion",
+            "ec2:DescribeLaunchTemplates",
+            "ec2:DescribeLaunchTemplateVersions",
+            "ec2:DeleteLaunchTemplate",
+            "ec2:DeleteLaunchTemplateVersions",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents",
+            "logs:DescribeLogStreams"
+          ],
+          "Resource" : "*"
+        },
+        {
+          "Effect" : "Allow",
+          "Action" : [
             "ecr:GetAuthorizationToken",
             "ecr:BatchCheckLayerAvailability",
             "ecr:GetDownloadUrlForLayer",
             "ecr:BatchGetImage",
             "ecr:DescribeRepositories",
             "ecr:ListImages",
-            "ecr:DescribeImages",
+            "ecr:DescribeImages"
           ],
           "Resource" : "*"
         }
