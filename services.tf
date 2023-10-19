@@ -20,35 +20,35 @@ locals {
       deployer_policy                      = local.policies.vpc-infrastructure
       allow_force_pushes_to_default_branch = true
       templated_files_variables            = merge(local.common-services-variables, { __REPOSITORY = "vpc-infrastructure" })
-      template_fork                        = true
+      template_fork                        = false
     }
     domain = {
       template                             = "codingones-github-templates/aws-service-domain"
       templated_files_variables            = merge(local.common-services-variables, { __REPOSITORY = "domain-infrastructure" })
       deployer_policy                      = local.policies.domain-infrastructure
       allow_force_pushes_to_default_branch = true
-      template_fork                        = true
+      template_fork                        = false
     }
     email = {
       template                             = "codingones-github-templates/aws-service-email"
       templated_files_variables            = merge(local.common-services-variables, { __REPOSITORY = "email-infrastructure" })
       deployer_policy                      = local.policies.email-infrastructure
       allow_force_pushes_to_default_branch = true
-      template_fork                        = true
+      template_fork                        = false
     }
     registry = {
       template                             = "codingones-github-templates/aws-service-registry"
       templated_files_variables            = merge(local.common-services-variables, { __REPOSITORY = "registry-infrastructure" })
       deployer_policy                      = local.policies.registry-infrastructure
       allow_force_pushes_to_default_branch = true
-      template_fork                        = true
+      template_fork                        = false
     }
     batch = {
       template                             = "codingones-github-templates/aws-service-batch"
       templated_files_variables            = merge(local.common-services-variables, { __REPOSITORY = "batch-infrastructure" })
       deployer_policy                      = local.policies.batch-infrastructure
       allow_force_pushes_to_default_branch = true
-      template_fork                        = true
+      template_fork                        = false
     }
   }
 }
