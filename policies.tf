@@ -147,7 +147,7 @@ locals {
             "iam:ListInstanceProfilesForRole",
             "iam:PassRole"
           ],
-          "Resource" : ["arn:aws:iam::*:role/ecs_compute_instance_role", "arn:aws:iam::*:role/aws_batch_service_role"]
+          "Resource" : "*"
         },
         {
           "Effect" : "Allow",
@@ -340,7 +340,7 @@ locals {
             "iam:ListInstanceProfilesForRole",
             "iam:PassRole"
           ],
-          "Resource" : "arn:aws:iam::*:role/lambda_execution_role",
+          "Resource" : ["arn:aws:iam::*:role/ecs_compute_instance_role", "arn:aws:iam::*:role/aws_batch_service_role"],
           "Condition" : {
             "StringEquals" : {
               "iam:PassedToService" : "batch.amazonaws.com"
@@ -354,7 +354,6 @@ locals {
             "batch:UpdateComputeEnvironment",
             "batch:DeleteComputeEnvironment",
             "batch:DescribeComputeEnvironments",
-            "iam:PassRole"
           ],
           "Resource" : "*"
         },
