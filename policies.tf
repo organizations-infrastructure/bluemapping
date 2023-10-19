@@ -337,24 +337,27 @@ locals {
             "iam:ListRolePolicies",
             "iam:ListAttachedRolePolicies",
             "iam:DeleteRolePolicy",
+            "iam:ListInstanceProfiles",
+            "iam:ListInstanceProfileTags",
+            "iam:GetInstanceProfile",
+            "iam:AddRoleToInstanceProfile",
+            "iam:CreateInstanceProfile",
+            "iam:DeleteInstanceProfile",
+            "iam:RemoveRoleFromInstanceProfile",
+            "iam:TagInstanceProfile",
+            "iam:UntagInstanceProfile",
             "iam:ListInstanceProfilesForRole",
             "iam:PassRole"
           ],
-          "Resource" : ["arn:aws:iam::*:role/ecs_compute_instance_role", "arn:aws:iam::*:role/aws_batch_service_role"],
-          "Condition" : {
-            "StringEquals" : {
-              "iam:PassedToService" : "batch.amazonaws.com"
-            }
-          }
+          "Resource" : [
+            "arn:aws:iam::*:role/ecs_compute_instance_role",
+            "arn:aws:iam::*:instance-profile/ecs_compute_instance_role",
+            "arn:aws:iam::*:role/aws_batch_service_role"
+          ]
         },
         {
           "Effect" : "Allow",
-          "Action" : [
-            "batch:CreateComputeEnvironment",
-            "batch:UpdateComputeEnvironment",
-            "batch:DeleteComputeEnvironment",
-            "batch:DescribeComputeEnvironments",
-          ],
+          "Action" : "batch:*",
           "Resource" : "*"
         },
         {
