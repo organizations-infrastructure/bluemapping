@@ -359,7 +359,11 @@ locals {
           "Effect" : "Allow",
           "Action" : [
             "iam:CreatePolicy",
-            "iam:GetPolicy"
+            "iam:GetPolicy",
+            "iam:GetPolicyVersion",
+            "iam:ListPolicyVersions",
+            "iam:CreatePolicyVersion",
+            "iam:DeletePolicy"
           ],
           "Resource" : "*"
         },
