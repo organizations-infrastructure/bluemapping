@@ -357,6 +357,14 @@ locals {
         },
         {
           "Effect" : "Allow",
+          "Action" : [
+            "iam:CreatePolicy",
+            "iam:GetPolicy"
+          ],
+          "Resource" : "*"
+        },
+        {
+          "Effect" : "Allow",
           "Action" : "batch:*",
           "Resource" : "*"
         },
